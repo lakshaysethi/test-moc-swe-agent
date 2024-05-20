@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consciousness Level Identifier</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+}
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#question {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Consciousness Level Identifier</h2>
+    <p id="question"></p>
+    <button onclick="takeNote('yes'); yes()">Yes</button>
+    <br>
+    <button onclick="takeNote('no'); no()">No</button>
+    <p id="summary"></p>
+    
+    <p>
+        answer all the above questions <br>then click here to see <a href="https://lakshaysethi.com/moc/moc.html">how to transcend your level of consciousness</a> <br> or see table below
+    </p>
+    <p id="level">Level : how to transcend</p>
+</div>
+
+
+
+<script>
+
+let level = "Shame";
+let previous_level = level
+let con_obj = {}
+function parseKey(key) {
+  // Replace spaces with underscores or any other desired character
+  return key.replace(/\s+/g, '_').toLowerCase();
+}
+
+function takeNote(text){
+  const parsedKey = parseKey(previous_level);
+  con_obj[previous_level] = text
+  previous_level = level
+}
+
+function update_summary(){
+    document.getElementById("summary").innerText = JSON.stringify(con_obj, null, 2);
+    if (level !="Enlightenment"){
+        document.getElementById("level").innerHTML += `<br><br>${level} : ${howToTranscend(level)}`;
+    }
+}
+
+function howToTranscend(level){
+    switch(level){
+        case "Shame":
+            return "Self-forgiveness, self care,  compassion"
+        case "Guilt":
+            return "Self-forgiveness, Accept God's Mercy"
+        case "Apathy":
+            return  "Find purpose, seek support"
+        case "Grief":
+            return "Acceptance, express emotions"
+        case "Fear":
+            return "Face fears, build courage"
+        case "Desire":
+            return  "Practice contentment, gratitude, let go of attachments"
+        case "Anger":
+            return "Channel anger constructively, accept and practice forgiveness towards others"
+        case "Pride":
+            return "Humility, service to others, be willing to see other's perspective, be open to learning"
+        case "Courage":
+            return  "become non-attached to outcomes"
+        case "Neutrality":
+            return  "Be open to new experiences, proactive attitude"
+        case "Willingness":
+            return  "Embrace reality, let go of resistance, accept life as it is"
+        case "Acceptance":
+            return  "Seek knowledge, wisdom, critical thinking"
+        case "Reason":
+            return  "Be kind, Loving, caring"
+        case "Love":
+            return "Practice unconditional love, compassion"
+        case "Joy":
+            return "Practice Graitude, live in the present"
+        case "Peace":
+            return "Meditation, inner stillness"
+        case "Enlightenment":
+            return  "Surrender ego, see unity with all"
+    }
+}
+
+function yes() {
+  update_summary()
+    
+    switch(level) {
+        case "Shame":
+            document.getElementById("question").innerText = "Do you often feel humiliated or worthless?";
+            level = "Guilt";
+            break;
+        case "Guilt":
+            document.getElementById("question").innerText = "Do you frequently blame yourself or others?";
+            level = "Apathy";
+            break;
+        case "Apathy":
+            document.getElementById("question").innerText = "Do you feel hopeless and indifferent towards your life?";
+            level = "Grief";
+            break;
+        case "Grief":
+            document.getElementById("question").innerText = "Are you sad? Are you feeling regretful?";
+            level = "Fear";
+            break;
+        case "Fear":
+            document.getElementById("question").innerText = "Are you anxious or worried about something?";
+            level = "Desire";
+            break;
+        case "Desire":
+            document.getElementById("question").innerText = "Is there any unfulfilled desire in you? Do you feel you are driven by cravings or dissatisfaction?";
+            level = "Anger";
+            break;
+        case "Anger":
+            document.getElementById("question").innerText = "Do you often feel hatred and frustration?";
+            level = "Pride";
+            break;
+        case "Pride":
+            document.getElementById("question").innerText = "Do you feel superior and scornful of others?";
+            level = "Courage";
+            break;
+        case "Courage":
+            document.getElementById("question").innerText = "Do you feel confident and ready to take risks?";
+            level = "Neutrality";
+            break;
+        case "Neutrality":
+            document.getElementById("question").innerText = "Do you feel content and non-judgmental?";
+            level = "Willingness";
+            break;
+        case "Willingness":
+            document.getElementById("question").innerText = "Are you optimistic and open to new experiences? Do you see a lot of positive oppertunities?";
+            level = "Acceptance";
+            break;
+        case "Acceptance":
+            document.getElementById("question").innerText = "Do you forgive yourself and others easily? Do you accept reality as it is?";
+            level = "Reason";
+            break;
+        case "Reason":
+            document.getElementById("question").innerText = "Do you often seek wisdom, understanding and meaning?";
+            level = "Love";
+            break;
+        case "Love":
+            document.getElementById("question").innerText = "Do you feel loved and compassion?";
+            level = "Joy";
+            break;
+        case "Joy":
+            document.getElementById("question").innerText = "Do you experience an unconditional love for others and yourself and gratitude for all that is?";
+            level = "Peace";
+            break;
+        case "Peace":
+            document.getElementById("question").innerText = "Do you feel blissful and at one with everything?";
+            level = "Enlightenment";
+            break;
+        case "Enlightenment":
+            document.getElementById("question").innerText = "You understand Everything and you know that you are the creator of all reality?";
+            
+            break;
+    }
+}
+
+function no() {
+    switch(level) {
+        case "Shame":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Guilt":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Apathy":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Grief":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Fear":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Desire":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Anger":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Pride":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Courage":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Neutrality":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Willingness":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Acceptance":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Reason":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Love":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Joy":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Peace":
+            document.getElementById("question").innerText = "You might be at a higher level of consciousness.";
+            break;
+        case "Enlightenment":
+            document.getElementById("question").innerText = "Do you feel you understand and are the source of all reality?";
+            break;
+          }
+          yes()
+
+}
+yes()
+</script>
+
+</body>
+</html>
